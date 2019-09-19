@@ -1,0 +1,90 @@
+<apex:page standardController="Ticket_Booking__c" showHeader="false" sidebar="false" lightningStylesheets="true" extensions="onsubmitextension" applyBodyTag="false">
+    <apex:slds />
+    <apex:form >
+        <div class="slds-scope">
+            
+       
+        <style type="text/css">
+            
+            body {
+            background-image: url("{!$Resource.newlogo}");
+            position:relative;
+            opacity:1.0;
+            padding-top:50px;	
+            }
+            h1
+            {
+            color: black;
+            text-align: center;
+            font-family:"Times New Roman";
+            font-size:24pt;
+            }
+            .a{
+            height:200px;
+            width:100px;
+            }
+        </style>
+        
+        
+        
+        <apex:pageblock id="pb1"  html-background="{!$Resource.logo}">
+             <apex:panelGrid >
+                        <apex:facet name="header">From</apex:facet>
+                         <apex:outputText value="{!station.Name}" styleClass="slds-form-element__control"></apex:outputText>
+                    </apex:panelGrid>
+                <apex:panelGrid >
+                        <apex:facet name="header">To</apex:facet>
+                        <apex:outputText value="{!station1.Name}" styleClass="slds-form-element__control"></apex:outputText>
+                    </apex:panelGrid>
+                  <apex:panelGrid >
+                        <apex:facet name="header">Class</apex:facet>
+                        <apex:outputText value="{!classval}"  styleClass="slds-form-element__control"></apex:outputText>
+                    </apex:panelGrid>
+             
+            <apex:repeat value="{!lstInner}" var="e1" id="therepeat">
+                <apex:panelGrid columns="6">
+                    <apex:panelGrid headerClass="Name">
+                        <apex:facet name="header"></apex:facet>
+                        <!--apex:commandButton value="Remove Passenger" action="{!Del}" rerender="pb1" immediate="true">
+                            <apex:param name="rowToBeDeleted" value="{!e1.recCount}" assignTo="{!selectedRowIndex}"></apex:param>
+                        </apex:commandButton-->
+                    </apex:panelGrid>	
+                    
+                    <apex:panelGrid title="SPD" >
+                        <apex:facet name="header">Name</apex:facet>
+                        <apex:inputfield styleClass="slds-form-element__control" value="{!e1.acct.Name}" required="true"/>
+                    </apex:panelGrid>
+                    
+                    <apex:panelGrid >
+                        <apex:facet name="header">Phone</apex:facet>
+                        <apex:inputfield value="{!e1.acct.Phone_number_del__c}" required="true"  styleClass="slds-form-element__control"/>
+                    </apex:panelGrid>
+                    
+                    <apex:panelGrid >
+                        <apex:facet name="header">Email</apex:facet>
+                        <apex:inputfield value="{!e1.acct.Email_del__c}"  styleClass="slds-form-element__control"/>
+                    </apex:panelGrid>
+                    
+                    <apex:panelGrid >
+                        <apex:facet name="header">Address</apex:facet>
+                        <apex:inputfield value="{!e1.acct.Address__c}"/>
+                    </apex:panelGrid>
+                    <apex:panelGrid >
+                        <apex:facet name="header">Food Provided</apex:facet>
+                        <apex:inputfield value="{!e1.acct.Food_Provided__c}"/>
+                    </apex:panelGrid>
+                </apex:panelGrid>
+               
+            </apex:repeat>
+            
+            <apex:pageBlockButtons location="Bottom" >
+                <apex:commandbutton value="Add Passenger" action="{!Add}" rerender="pb1" immediate="true" styleClass="slds-button slds-button_success"/>
+                <apex:commandbutton value="Save and Pay" action="{!Save}" styleClass="slds-button slds-button_brand">
+                    
+                </apex:commandbutton>    
+               
+            </apex:pageBlockButtons>
+        </apex:pageblock>
+         </div>
+    </apex:form>
+</apex:page>

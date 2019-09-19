@@ -1,0 +1,44 @@
+<apex:page standardController="Payment__c" extensions="paymentclass" showHeader="false" sidebar="false">
+    <apex:pageBlock >
+        <h1>
+            Your Ticket has been successfully Booked
+        </h1>
+        
+        <style >
+                        body{
+                        background-image: url("{!$Resource.ticket}")
+                         }
+                        p
+                        {
+                        
+                        font-family:"Arial Unicode MS";
+                        font-size:30pt;
+                        }
+                        
+                        h1
+                        {
+  							color: black;
+  							text-align: center;
+                        font-family:"Times New Roman";
+                        font-size:30pt;
+                        }
+                        .aa{
+                        sstext-align:center;
+                        float:right;
+                        padding-left:80px;
+                        }
+                    </style>
+   <apex:pageBlockTable value="{!records}" var="a">
+                <apex:column value="{!a.Booking_ID__c}"/>
+            </apex:pageBlockTable>
+    </apex:pageBlock>
+
+    <apex:pageMessage severity="Confirm" > Your Ticket has been Successfully Booked   </apex:pageMessage>
+    
+   <apex:pageBlock >
+    <div style="text-align:center">
+         <a href='apex/sample1?core.apexpages.request.devconsole=1'><input type="button" value="HOME"/></a>
+     </div>    
+     </apex:pageBlock>
+    
+</apex:page>

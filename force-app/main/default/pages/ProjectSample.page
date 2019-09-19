@@ -1,0 +1,54 @@
+<apex:page title="Railway Consumer Service System" StandardController="Fare_Price__c" extensions="AutoPopulateExample" sidebar="false" showHeader="false">
+    <style>
+    .ab{
+        width:50%;
+        height:66
+        float:center;
+        font-size:20px;
+        }
+    </style>
+    <div class="rail" column="2">
+        <apex:form >
+            <img src="{!$Resource.logo}" width="200"/>
+           
+            <div class="ab">
+       
+    </div>
+        </apex:form>
+        
+        
+    </div>
+    
+    
+    <apex:form >
+        
+        <apex:pageBlock title="Railway Consumer Service System">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Go" action="{!xyz}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!Testing.From__c}"  id="from"/>
+                <apex:inputField value="{!Testing.To__c}"  id="to"/>
+                <apex:inputField value="{!Testing.Class__c}"  id="seat"/>
+                 
+                
+            </apex:pageBlockSection>
+            
+            
+        </apex:pageBlock>
+        
+        <apex:pageblock >
+            <apex:pageBlockTable value="{!abc}" var="a">
+                <apex:column value="{!a.Amount__c}"/>
+                <apex:column value="{!a.Train__c}"/>
+               
+            </apex:pageBlockTable>
+            
+        </apex:pageblock>
+        
+        
+    </apex:form>
+    
+    
+</apex:page>

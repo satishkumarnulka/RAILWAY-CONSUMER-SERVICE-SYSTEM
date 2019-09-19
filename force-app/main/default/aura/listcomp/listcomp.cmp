@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    <aura:attribute name="ullist" type="string"/>
+    
+    <aura:iteration items="{!v.ullist}" var="u">
+     
+        <ul type="circle">
+           <li>
+             {!u}
+           </li>
+        </ul>
+      
+    </aura:iteration>
+</aura:component>

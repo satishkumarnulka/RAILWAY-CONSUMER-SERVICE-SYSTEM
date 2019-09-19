@@ -1,0 +1,87 @@
+<apex:page standardStylesheets="true" title="Railway Consumer Service System" standardController="Fare_Price__c" extensions="AutoPopulateExample" sidebar="false" showHeader="false" applyBodyTag="false">
+      <apex:slds />
+    <style >
+                        body{
+                        background-image: url("{!$Resource.logo}");
+                        background-size:cover;
+                         }
+                        p
+                        {
+                        
+                        font-family:"Arial Unicode MS";
+                        font-size:30pt;
+                        }
+                        
+                        h1
+                        {
+  							color: black;
+  							text-align: center;
+                        font-family:"Times New Roman";
+                        font-size:42pt;
+                        }
+                        .aa{
+                        sstext-align:center;
+                        float:right;
+                        padding-left:80px;
+                        }
+                    </style>
+    
+                    
+    <apex:form >
+        <div class="slds-scope">
+        <apex:pageBlock >
+          <apex:pageBlockSection columns="2">
+                      <apex:pageMessages ></apex:pageMessages>
+                <apex:outputLabel >
+                </apex:outputLabel>
+              </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Railway Consumer Service System">  
+             <font color="#ff0000">
+             <apex:facet name="header">
+                 <center>
+             <span style="font-size:42px"  >Railway Consumer Service System</span>
+                     </center>
+             </apex:facet>    
+             </font>
+
+            <apex:pageBlockSection title="Search Your trains" columns="1" collapsible="false">
+                <apex:inputField value="{!Testing.From__c}" styleClass="slds-form-element__control"/>
+                <apex:inputField value="{!Testing.To__c}" styleClass="slds-form-element__control"/>
+                <apex:inputField value="{!Testing.Class__c}" styleClass="slds-form-element__control"/>
+                <apex:inputField value="{!Testing.Date__c}" styleClass="slds-form-element__control"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="No of Passengers"/> 
+                    <apex:inputText value="{!noOfPassengers}" maxlength="1" styleClass="slds-form-element__control"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>	
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Go" action="{!display}" styleClass="slds-button slds-button_brand">
+                </apex:commandButton>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection > 
+                <apex:pageBlockSectionItem >  
+                    <apex:outputText value="Total Fare Amount"/> 
+                    <apex:outputText value="{!TotalFare}" styleClass="slds-form-element__control"> </apex:outputText>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>   
+        </apex:pageBlock>
+        
+        <apex:pageblock >
+            <apex:pageBlockTable value="{!updatedFarePrice}" var="a" >
+                <apex:column value="{!a.Train__c}"/>
+                <apex:column value="{!a.From__c}"/>
+                <apex:column value="{!a.To__c}"/>
+                <apex:column >
+                    <apex:commandButton value="Book" action="{!book}" styleClass="slds-button slds-button_success">
+                 
+                    </apex:commandButton>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageblock>
+        
+        </div>
+    </apex:form>
+    
+</apex:page>
